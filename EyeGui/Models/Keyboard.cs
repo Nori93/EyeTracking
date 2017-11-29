@@ -1,4 +1,5 @@
 ﻿using CommonWeb.Html;
+using CommonWeb.Html.Bootstrap;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,11 +28,12 @@ namespace EyeGui.Models
             head.AddAttr("align", "center");
             var title = new THeadField.TRField.THField();
             thead.AddInnerField(title);
-            title.AddInnerField("---------------------------------");
-            title.AddId("Keyboard-Troogle");
+            title.AddId("Keyboard-Troggle");
             title.AddAttr("colspan","15");
+            
 
             var tbody = new TBodyField();
+            tbody.AddId("Keyboard-Body");
             this.AddInnerField(tbody);
             this.AddStyle("table-layout: fixed;");
 
@@ -39,9 +41,21 @@ namespace EyeGui.Models
             firstrow.AddAttr("align", "center");
             foreach (var r1 in FirstRow)
             {
-                var r = new TBodyField.TRField.TDField().AddId("keyboard" + r1).AddInnerField(r1);
-                if (r1 == "<- Backspace") { r.AddAttr("colspan", "2"); }
-                firstrow.AddInnerField(r);
+                if (r1 != "")
+                {
+                    var r = new TBodyField.TRField.TDField().AddId("keyboard" + r1).AddInnerField(
+                        new BButtonField(r1)
+                        .AddId("button_" + r1)
+                        .AddStyle("width: 100%; height: 100%")
+                        .AddDataAttribute("keyboard", "keys")
+                        .AddDataAttribute("keyboard-value", r1));
+                    if (r1 == "<- Backspace") { r.AddAttr("colspan", "2"); }
+                    firstrow.AddInnerField(r);
+                }
+                else
+                {
+                    firstrow.AddInnerField(new TBodyField.TRField.TDField());
+                }
             }
             tbody.AddInnerField(firstrow);
 
@@ -49,9 +63,21 @@ namespace EyeGui.Models
             secendrow.AddAttr("align", "center");
             foreach (var r2 in SecendRow)
             {
-                var r = new TBodyField.TRField.TDField().AddId("keyboard" + r2).AddInnerField(r2);
-                if (r2 == "Tab") { r.AddAttr("colspan", "2"); }
-                secendrow.AddInnerField(r);
+                if (r2 != "")
+                {
+                    var r = new TBodyField.TRField.TDField().AddId("keyboard" + r2).AddInnerField(
+                    new BButtonField(r2)
+                    .AddId("button_" + r2)
+                    .AddStyle("width: 100%; height: 100%")
+                    .AddDataAttribute("keyboard", "keys")
+                    .AddDataAttribute("keyboard-value", r2));
+                    if (r2 == "Tab") { r.AddAttr("colspan", "2"); }
+                    secendrow.AddInnerField(r);
+                }
+                else
+                {
+                    secendrow.AddInnerField(new TBodyField.TRField.TDField());
+                }
             }
             tbody.AddInnerField(secendrow);
 
@@ -59,10 +85,22 @@ namespace EyeGui.Models
             thridrow.AddAttr("align", "center"); 
             foreach (var r3 in ThridRow)
             {
-                var r = new TBodyField.TRField.TDField().AddId("keyboard" + r3).AddInnerField(r3);
-                if (r3 == "Caps Lock") { r.AddAttr("colspan", "2"); }
-                if (r3 == "Enter") { r.AddAttr("colspan", "2"); }
-                thridrow.AddInnerField(r);
+                if(r3 != "")
+                {
+                    var r = new TBodyField.TRField.TDField().AddId("keyboard" + r3).AddInnerField(
+                    new BButtonField(r3)
+                    .AddId("button_" + r3)
+                    .AddStyle("width: 100%; height: 100%")
+                    .AddDataAttribute("keyboard", "keys")
+                    .AddDataAttribute("keyboard-value", r3));
+                    if (r3 == "Caps Lock") { r.AddAttr("colspan", "2"); }
+                    if (r3 == "Enter") { r.AddAttr("colspan", "2"); }
+                    thridrow.AddInnerField(r);
+                }
+                else
+                {
+                    thridrow.AddInnerField(new TBodyField.TRField.TDField());
+                }
             }
             tbody.AddInnerField(thridrow);
 
@@ -70,9 +108,21 @@ namespace EyeGui.Models
             fourthrow.AddAttr("align", "center");
             foreach (var r4 in FourthRow)
             {
-                var r = new TBodyField.TRField.TDField().AddId("keyboard" + r4).AddInnerField(r4);
-                if (r4 == "Shift") { r.AddAttr("colspan", "2"); }
-                fourthrow.AddInnerField(r);
+                if (r4 != "")
+                {
+                    var r = new TBodyField.TRField.TDField().AddId("keyboard" + r4).AddInnerField(
+                    new BButtonField(r4)
+                    .AddId("button_" + r4)
+                    .AddStyle("width: 100%; height: 100%")
+                    .AddDataAttribute("keyboard", "keys")
+                    .AddDataAttribute("keyboard-value", r4));
+                    if (r4 == "Shift") { r.AddAttr("colspan", "2"); }
+                    fourthrow.AddInnerField(r);
+                }
+                else
+                {
+                    fourthrow.AddInnerField(new TBodyField.TRField.TDField());
+                }
             }               
             tbody.AddInnerField(fourthrow);
 
@@ -80,12 +130,23 @@ namespace EyeGui.Models
             fifthrow.AddAttr("align", "center");
             foreach (var r5 in FifthRow)
             {
-                var r = new TBodyField.TRField.TDField().AddId("keyboard" + r5).AddInnerField(r5);
-                if (r5 == "Ctrl") { r.AddAttr("colspan", "2"); }
-                if (r5 == "Alr") { r.AddAttr("colspan", "2"); }
-                if (r5 == "Space") { r.AddAttr("colspan", "5"); }
-
-                fifthrow.AddInnerField(r);
+                if (r5 != "")
+                {
+                    var r = new TBodyField.TRField.TDField().AddId("keyboard" + r5).AddInnerField(
+                    new BButtonField(r5)
+                    .AddId("button_" + r5)
+                    .AddStyle("width: 100%; height: 100%")
+                    .AddDataAttribute("keyboard", "keys")
+                    .AddDataAttribute("keyboard-value", r5));
+                    if (r5 == "Ctrl") { r.AddAttr("colspan", "2"); }
+                    if (r5 == "Alr") { r.AddAttr("colspan", "2"); }
+                    if (r5 == "Space") { r.AddAttr("colspan", "5"); }
+                    fifthrow.AddInnerField(r);
+                }
+                else
+                {
+                    fourthrow.AddInnerField(new TBodyField.TRField.TDField());
+                }
             }
             tbody.AddInnerField(fifthrow);
 

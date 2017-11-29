@@ -23,6 +23,9 @@ namespace EyeGui
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/Self").Include(
+                      "~/Scripts/Self/KeyboardTroggle.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
