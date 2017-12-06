@@ -16,9 +16,18 @@ namespace EyeGui.Models
         public string[] ThridRow =
             new string[] { "Caps Lock", "A", "S", "D", "F", "G", "H", "J", "K", "L", ";", "'", "Enter" };
         public string[] FourthRow =
-            new string[] { "Shift", "Z", "X", "C", "V", "B", "N","M",",",".","/","","^" ,""};
+            new string[] { "Shift", "Z", "X", "C", "V", "B", "N","M",",",".","/","","arrow_up" ,""};
         public string[] FifthRow =
-            new string[] { "Ctrl", "Alr", "Space", "Alt", "Ctrl", "<-", "v", "->" };
+            new string[] { "Ctrl", "Alt", "Space", "Alt", "Ctrl", "arrow_left", "arrow_down", "arrow_right" };
+
+        public string[] Letters =
+            new string[] { "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P",
+                           "A", "S", "D", "F", "G", "H", "J", "K", "L",
+                           "Z", "X", "C", "V", "B", "N", "M", };
+        public string[] Numbers =
+            new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" };
+        public string[] SpecialSigs = 
+            new string[] { "`","-","=","" }
         public Keyboard()
             :base()
         {
