@@ -26,8 +26,8 @@ namespace EyeGui.Models
                            "Z", "X", "C", "V", "B", "N", "M", };
         public string[] Numbers =
             new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" };
-        public string[] SpecialSigs = 
-            new string[] { "`","-","=","" }
+        public string[] SpecialSigs =
+            new string[] { "`", "-", "=", "" };
         public Keyboard()
             :base()
         {
