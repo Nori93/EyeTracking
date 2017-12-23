@@ -152,6 +152,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Keyboard.cs" />
+    <Compile Include="Models\KeyboardKeys.cs" />
+    <Compile Include="Models\KeyButton.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
