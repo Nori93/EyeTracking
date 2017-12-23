@@ -7,17 +7,7 @@ namespace EyeGui.Models
 {
     public partial class Keyboard
     {
-        //public string[] FirstRow =
-        //   new string[] { "`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "<- Backspace" };
-        //public string[] SecendRow =
-        //    new string[] { "Tab", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "[", "]", "\\" };
-        //public string[] ThridRow =
-        //    new string[] { "Caps Lock", "A", "S", "D", "F", "G", "H", "J", "K", "L", ";", "'", "Enter" };
-        //public string[] FourthRow =
-        //    new string[] { "Shift", "Z", "X", "C", "V", "B", "N", "M", ",", ".", "/", "", "arrow_up", "" };
-        //public string[] FifthRow =
-        // new string[] { "Ctrl", "Alt", "Space", "Alt", "Ctrl", "arrow_left", "arrow_down", "arrow_right" };
-
+       
         public HashSet<KeyButton> Keys = new HashSet<KeyButton>()
         {
             ////First Row
