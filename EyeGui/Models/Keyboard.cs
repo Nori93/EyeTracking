@@ -1,9 +1,5 @@
 ﻿using CommonWeb.Html;
-using CommonWeb.Html.Bootstrap;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace EyeGui.Models
 {
@@ -20,6 +16,9 @@ namespace EyeGui.Models
             var head = new THeadField.TRField();
             head.AddAttr("align", "center");
             var title = new THeadField.TRField.THField();
+            var div = new DivField();
+            div.AddStyle("width:100%; height:100%;");
+            title.AddInnerField(div);
             thead.AddInnerField(title);
             title.AddId("Keyboard-Troggle");
             title.AddAttr("colspan", "15");
@@ -32,46 +31,66 @@ namespace EyeGui.Models
 
             Rows = new List<TBodyField.TRField>();
             int row_nr = 0;
+            var tr = new TBodyField.TRField();
             foreach (var key in Keys)
             {
                 if (key.Row != row_nr)
                 {
                     row_nr++;
-                    Rows.Add(new TBodyField.TRField());
+                    Rows.Add(tr);
+                    tr = new TBodyField.TRField();
                 }
-                var facility = new TBodyField.TRField.TDField();
+                var td = new TBodyField.TRField.TDField();
                 var button = new ButtonField();
                 button.AddClass("btn");
+                button.AddId("id_"+key.FirstDisplayed);
 
                 if (key.FunctionButton)
                 {
                     button.AddAttr("data-display-first", key.FirstDisplayed);
                     button.AddAttr("data-function", "true");
                     button.AddAttr("data-function-type", key.FirstDisplayed);
+                    td.AddAttr("colspan", key.ColSpam.ToString());
                 }
                 if (key.Letter)
                 {
                     button.AddAttr("data-display-first", key.FirstDisplayed);
                     button.AddAttr("data-display-secend", key.SecendDisplayed);
                     button.AddAttr("data-letter", "true");
+                    button.AddAttr("data-key-value", key.FirstDisplayed);
+                    button.AddAttr("data-double-display", "true");
+                    button.AddAttr("data-double-value", "true");
                 }
                 if (key.Number)
                 {
                     button.AddAttr("data-display-first", key.FirstDisplayed);
                     button.AddAttr("data-display-secend", key.SecendDisplayed);
-                    button.AddAttr("data-numbert", "true");
-
+                    button.AddAttr("data-number", "true");
+                    button.AddAttr("data-key-value", key.FirstDisplayed);
+                    button.AddAttr("data-double-display", "true");
+                    button.AddAttr("data-double-value", "true");
                 }
                 if (key.Other)
                 {
                     button.AddAttr("data-display-first", key.FirstDisplayed);
                     button.AddAttr("data-display-secend", key.SecendDisplayed);
                     button.AddAttr("data-other", "true");
+                    button.AddAttr("data-other-type", key.FirstDisplayed);
+                    button.AddAttr("data-key-value", key.FirstDisplayed);
+                    button.AddAttr("data-double-display", "true");
+                    button.AddAttr("data-double-value", "true");
                 }
-               
-                Rows[row_nr].AddInnerField(facility);
+                button.AddStyle("width: 100%; height: 100%;");
+                button.AddInnerField(key.FirstDisplayed);
+                td.AddInnerField(button);
+                tr.AddInnerField(td);
+                Rows.Add(tr);
             }
 
+            foreach (var row in Rows)
+            {
+                tbody.AddInnerField(row);
+            }
         }
 
         //public Keyboard()

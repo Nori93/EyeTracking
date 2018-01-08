@@ -7,7 +7,7 @@ namespace EyeGui.Models
 {
     public partial class Keyboard
     {
-       
+
         public HashSet<KeyButton> Keys = new HashSet<KeyButton>()
         {
             ////First Row
@@ -52,6 +52,7 @@ namespace EyeGui.Models
             new KeyButton().LetterKey("k",2),
             new KeyButton().LetterKey("l",2),
             new KeyButton().OtherKey(";",":",2),
+            new KeyButton().OtherKey("'",'"'+"",2),
             new KeyButton().FunctionKey("Enter",2,2),
             ////Fourth Row
             new KeyButton().FunctionKey("Shift",2,3),
@@ -65,13 +66,13 @@ namespace EyeGui.Models
             new KeyButton().OtherKey(",","<",3),
             new KeyButton().OtherKey(".",">",3),
             new KeyButton().OtherKey("/","?",3),
-            new KeyButton().OtherKey("","",3),
+            new KeyButton().FunctionKey("<>",1,3),
             new KeyButton().FunctionKey("arrow_up",0,3),
-            new KeyButton().OtherKey("","",3),
+            new KeyButton().FunctionKey("<>",1,3),
             ////Fift Row
             new KeyButton().FunctionKey("Ctrl",2,4),
             new KeyButton().FunctionKey("Alt",2,4),
-            new KeyButton().FunctionKey("Space",5,4),
+            new KeyButton().FunctionKey("Space",4,4),
             new KeyButton().FunctionKey("Alt",2,4),
             new KeyButton().FunctionKey("Ctrl",2,4),
             new KeyButton().FunctionKey("arrow_left",0,4),
