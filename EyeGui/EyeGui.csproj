@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -385,6 +386,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\Self\FunctionKeys.js" />
+    <Content Include="Scripts\Self\GazeToggle.js" />
     <Content Include="Scripts\Self\KeyboardTroggle.js" />
     <Content Include="Scripts\Tables\bootstrap-ajaxDataTable-pl.js" />
     <Content Include="Scripts\Tables\bootstrap-ajaxDataTable.js" />

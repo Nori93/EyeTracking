@@ -3,57 +3,62 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title — moja aplikacja platformy ASP.NET</title>
+    <title>@ViewBag.Title Prototyp aplikacji do komunikacji z osobami cierpiącymi na układ zamknięcia</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
+	@Scripts.Render("~/bundles/webgazer/webgazer.js")
+	@Scripts.Render("~/bundles/Self")
+
 </head>
 <body>
-@{
-    Context.Response.Headers.Remove("X-Frame-Options");
-}
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("EyeGui", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            @Scripts.Render("~/bundles/Self")
-            @(new DivField().AddClass("row")
-                .AddInnerField(
-                    new DivField().AddClass("col-xs-9")
-                        .AddInnerField(
-                            new InputField().AddId("search").AddClass("form-control").AddStyle("margin-top:10px;")
-                        )
-                ).AddInnerField(
-                    new DivField().AddClass("col-xs-2")
-                        .AddInnerField(
-                            new BButtonField(BtnBootstrap.Btn.BtnEnum.primary).AddDataAttribute("search", "true").AddStyle("margin-top:10px;")
-                                 .AddInnerField(
-                                    new SpanField("glyphicon glyphicon-search")
-                                 )   
-                        )
-                )
-            )            
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        
-        <footer>
-         
-        </footer>
-    </div>
-   @(new DivField().AddClass("KeyboardPanel").AddStyle("position: fixed; width: 100%; height: auto; background: #fff; bottom: 0px;")
-           .AddInnerField(new DivField().AddId("Keyboard").AddInnerField(new Keyboard())))    
-    
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+	@{
+		Context.Response.Headers.Remove("X-Frame-Options");
+
+	}
+	@Scripts.Render("~/bundles/webgazer")
+	@Scripts.Render("~/bundles/Self")
+		<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				@Html.ActionLink("EyeGui", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+			</div>
+			@Scripts.Render("~/bundles/Self")
+			@(new DivField().AddClass("row")
+												.AddInnerField(
+													new DivField().AddClass("col-xs-9")
+														.AddInnerField(
+															new InputField().AddId("search").AddClass("form-control").AddStyle("margin-top:10px;")
+														)
+												).AddInnerField(
+													new DivField().AddClass("col-xs-2")
+														.AddInnerField(
+															new BButtonField(BtnBootstrap.Btn.BtnEnum.primary).AddDataAttribute("search", "true").AddStyle("margin-top:10px;")
+																 .AddInnerField(
+																	new SpanField("glyphicon glyphicon-search")
+																 )
+														)
+												)
+			)
+		</div>
+	</div>
+	<div class="container body-content">
+		<div id="video"></div>
+		@RenderBody()
+		<hr />
+
+		<footer></footer>
+	</div>
+	@(new DivField().AddClass("KeyboardPanel").AddStyle("position: fixed; width: 100%; height: auto; background: #fff; bottom: 0px;")
+										   .AddInnerField(new DivField().AddId("Keyboard").AddInnerField(new Keyboard())))
+
+	@Scripts.Render("~/bundles/jquery")
+	@Scripts.Render("~/bundles/bootstrap")
+	@RenderSection("scripts", required: false)
 </body>
 </html>
